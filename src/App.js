@@ -5,7 +5,7 @@ import Logout from "./components/Logout/Logout";
 import Sidebar from "./components/sidebar/Sidebar";
 import Timeline from "./components/timeline/Timeline";
 import Widgets from "./components/widget/Widgets";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false)

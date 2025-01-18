@@ -1,7 +1,7 @@
 {
   "name": "twitter-app",
   "version": "0.1.0",
-  "homepage": "https://NonakaMibuki.github.io/x-clone/",
+  "homepage": "https://nonakamibuki.github.io/x-clone/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -20,10 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "rm": "rm -rf docs",
-    "mv": "mv build docs",
-    "git": "git add . && git commit && git push origin main",
-    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

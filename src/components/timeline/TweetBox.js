@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import db from "../../firebase";
+import { db } from "../../firebase";
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -11,7 +11,8 @@ function TweetBox() {
   const sendTweet = (e) => {
     e.preventDefault();
 
-    addDoc(collection(db, "posts"), {
+    const postsCollectionRef = collection(db, "posts");
+    addDoc(postsCollectionRef, {
       displayName: "プログラミングチュートリアル",
       username: "xxx",
       verified: true,

@@ -11,6 +11,7 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import "./Sidebar.css"
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -27,6 +28,7 @@ function Sidebar() {
       <SidebarOption text="もっとみる" Icon={MoreHorizIcon} />
 
       <Button className="sidebar__tweet" fullWidth>ツイートする</Button>
+      <Link to="logout" className="logout__link">ログアウト</Link>
     </div>
   );
 }

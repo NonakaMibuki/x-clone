@@ -11,7 +11,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
 
   return (
-    <Router basename="https://nonakamibuki.github.io/x-clone/">
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route
           path="/"

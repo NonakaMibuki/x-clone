@@ -9,7 +9,9 @@ import XIcon from "@mui/icons-material/X";
 function Login({ setIsAuth }) {
   const navigate = useNavigate();
 
-  const loginInWithGoogle = () => {
+  const loginInWithGoogle = (e) => {
+    e.preventDefault(); 
+    
     signInWithPopup(auth, provider).then((result) => {
       localStorage.setItem("isAuth", true);
       setIsAuth(true);

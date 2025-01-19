@@ -11,7 +11,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
 
   return (
-    <Router>
+    <Router basename="https://nonakamibuki.github.io/x-clone/">
       <Routes>
         <Route
           path="/"

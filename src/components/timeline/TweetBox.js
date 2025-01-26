@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, auth } from "../../firebase";
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -13,11 +13,14 @@ function TweetBox() {
 
     const postsCollectionRef = collection(db, "posts");
     addDoc(postsCollectionRef, {
-      displayName: "プログラミングチュートリアル",
-      username: "xxx",
+      displayName: "山田太郎",
+      author: {
+        username: "",
+        id: auth.currentUser.uid,
+      },
       verified: true,
       text: tweetMessage,
-      avatar: "http://shincode.info/wp-content/uploads/2021/12/icon.png",
+      avatar: "https://cdn.pixabay.com/photo/2024/04/08/11/42/doggy-8683291_1280.jpg",
       image: tweetImage,
       timestamp: serverTimestamp(),
     });

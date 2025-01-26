@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Timeline.css";
 import TweetBox from "./TweetBox";
 import Post from "./Post";
-import { db } from "../../firebase";
-import { collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db, auth } from "../../firebase";
+import { arrayUnion, collection, doc, getDocs, onSnapshot, orderBy, query, updateDoc } from "firebase/firestore";
 import FlipMove from "react-flip-move";
 
 function Timeline() {
@@ -22,6 +22,7 @@ function Timeline() {
     });
   }, []);
 
+
   return (
     <div className="timeline">
       {/* Header */}
@@ -33,9 +34,10 @@ function Timeline() {
       {/* Post */}
       <FlipMove>
         {posts.map((post) => (
-          <Post key={post.text} displayName={post.displayName} username={post.username} verified={post.verified} text={post.text} avatar={post.avatar} image={post.image} />
+          <Post key={post.id} displayName={post.displayName} username={post.username} verified={post.verified} text={post.text} avatar={post.avatar} image={post.image}/>
         ))}
       </FlipMove>
+
     </div>
   );
 }
